@@ -83,7 +83,7 @@ import { wonderland } from '../themes/wonderland.theme';
 
 // Encharting Models & Constants
 import { AxisType, Bar, BasePoint, Chart, Component, Point, Trace } from '../models/chart.model';
-import { DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, RESTORE, SAVE_AS_SVG, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
+import { BAR_LEGEND_ICON, DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, RESTORE, SAVE_AS_SVG, TRACE_LEGEND_ICON, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
 
 @Directive({
   selector: 'div[encharting]'
@@ -229,14 +229,14 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
         },
       },
       grid: {
-
+        width: '70%'
       },
       legend: {
         show: chart.showLegend ?? true,
         data: chart.components.map(
-          (shape: Component) => ({
-            name: shape.name,
-            icon: 'circle'
+          (component: Component) => ({
+            name: component.name,
+            icon: this.getLegendIconByComponentType(component.type)
           })
         ),
         selected: chart.components.reduce((accumulator, plot: Component) => ({ ...accumulator, [plot.name as string]: plot.selectedByDefault ?? true }), {}),
@@ -309,6 +309,9 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
         max: chart.xMax?.toFixed(chart.maxAxesDecimals ?? 3),
       },
       yAxis: {
+        nameTextStyle: {
+          padding: -15
+        },
         axisLabel: {
           fontFamily: font
         },
@@ -326,6 +329,18 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
       animation: chart.hasAnimations ?? true,
       animationDuration: chart.animationDuration ?? 500,
     };
+  }
+
+  getLegendIconByComponentType(type: 'line' | 'scatter' | 'bar'): string {
+    switch (type) {
+      case 'line':
+      case 'scatter':
+        return TRACE_LEGEND_ICON;
+      case 'bar':
+        return BAR_LEGEND_ICON;
+      default:
+        return 'circle';
+    }
   }
 
   createSeries(chart: Chart): Array<LineSeriesOption | CustomSeriesOption | ScatterSeriesOption | BarSeriesOption> {
@@ -396,7 +411,8 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
     return {
       type: 'bar',
       name: bar.name,
-      barWidth: bar.barWidth,
+      showBackground: true,
+      barWidth: bar.barWidth ?? 50,
       itemStyle: {
         opacity: 0.8,
       },
