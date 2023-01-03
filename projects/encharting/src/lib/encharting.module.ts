@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
-import { EnchartingComponent } from './encharting.component';
-
-
-
+import { EnchartingDirective } from './directives/encharting.directive';
 @NgModule({
   declarations: [
-    EnchartingComponent
+    EnchartingDirective
   ],
   imports: [
   ],
   exports: [
-    EnchartingComponent
+    EnchartingDirective
   ]
 })
 export class EnchartingModule { }
