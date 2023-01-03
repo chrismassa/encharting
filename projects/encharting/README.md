@@ -1,24 +1,39 @@
-# Encharting
+# Getting Started
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+Encharting is an Angular library designed to simplify the process of 2D charts generation.
 
-## Code scaffolding
+# Installation
 
-Run `ng generate component component-name --project encharting` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project encharting`.
-> Note: Don't forget to add `--project encharting` or else it will be added to the default project in your `angular.json` file. 
+After creating a new Angular project simply run:
 
-## Build
+```properties
+npm install encharting
+``` 
 
-Run `ng build encharting` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Usage
 
-## Publishing
+- Firstly, import EnchartingModule in your app module (or any other proper Angular module).
+  
+    ```typescript
+    import { KiwiChartModule } from '@kiwibit/chart';
 
-After building your library with `ng build encharting`, go to the dist folder `cd dist/encharting` and run `npm publish`.
+    @NgModule({
+        imports: [
+            KiwiChartModule
+        ],
+    })
+    export class AppModule {}
+    ```
+- Then use the **encharting** directive in the HTML of your Angular component:
+  
+  ```html
+  <div encharting></div>
+  ```
 
-## Running unit tests
+# API
 
-Run `ng test encharting` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Name                | Type   | Default            | Description                      |
+| ------------------- | ------ | ------------------ | -------------------------------- |
+| **@Input** [config] | Chart  | { components: [] } | The chart configuration object   |
+| **@Input** [width]  | string | 600px              | The width of the canvas element  |
+| **@Input** [height] | string | 400px              | The height of the canvas element |

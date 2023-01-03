@@ -1,11 +1,11 @@
 {
   "name": "encharting-showcase",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build encharting --watch --configuration development",
+    "build:encharting": "ng build encharting",
+    "watch:encharting": "ng build encharting --watch --configuration development",
     "test": "ng test"
   },
   "private": true,

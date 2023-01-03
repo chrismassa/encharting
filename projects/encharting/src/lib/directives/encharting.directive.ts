@@ -90,7 +90,7 @@ import { DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, RESTORE, SAVE_AS_SV
 })
 export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy {
 
-  @Input() option: Chart = {
+  @Input() config: Chart = {
     components: []
   };
   @Input() width: string = '600px';
@@ -186,7 +186,7 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
     // Setup Chart Configuration & Event Handlers
     if (this.chart) {
       this.chart.setOption(
-        this.createOption(this.option, this.fontFamily)
+        this.createOption(this.config, this.fontFamily)
       );
       // Echarts Events
       this.chart.on('click', (params: ECElementEvent) => {
@@ -437,9 +437,9 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
   formatComponentTooltip(component: Component, value: number[]): string {
     return `
       <h3>${component.name}</h3>
-      <strong>${this.option['xAxisName'] ?? DEFAULT_X_NAME}:</strong> ${value[0].toFixed(3).replace(/[.,]000$/, "")}
+      <strong>${this.config['xAxisName'] ?? DEFAULT_X_NAME}:</strong> ${value[0].toFixed(3).replace(/[.,]000$/, "")}
       <br>
-      <strong>${this.option['yAxisName'] ?? DEFAULT_Y_NAME}:</strong> ${value[1].toFixed(3).replace(/[.,]000$/, "")}
+      <strong>${this.config['yAxisName'] ?? DEFAULT_Y_NAME}:</strong> ${value[1].toFixed(3).replace(/[.,]000$/, "")}
     `;
   }
 
