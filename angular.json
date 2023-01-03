@@ -30,8 +30,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles/main.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/abstracts",
+                "src/styles/vendors",
+                "src/styles/base",
+                "src/styles/layout",
+                "src/styles/components",
+                "src/styles/pages",
+                "src/styles/themes"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -93,6 +105,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
