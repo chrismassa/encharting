@@ -9,5 +9,17 @@
     "@types/echarts": "^4.9.16",
     "echarts": "^5.4.1",
     "tslib": "^2.3.0"
-  }
+  },
+  "keywords": [
+    "angular",
+    "echarts",
+    "echarts-angular",
+    "component",
+    "chart",
+    "charts",
+    "graph",
+    "graphs",
+    "simple",
+    "directive"
+  ]
 }
