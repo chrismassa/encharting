@@ -2,19 +2,21 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Chart, EnchartingModule } from 'encharting';
 import { ThemeService } from 'src/app/core/services/theme.service';
+import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 @Component({
   selector: 'app-line-chart',
   standalone: true,
   imports: [
     CommonModule,
-    EnchartingModule
+    EnchartingModule,
+    SlideInDirective
   ],
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent {
 
-  constructor(public themeService: ThemeService) {}
+  constructor(public themeService: ThemeService) { }
 
   config: Chart = {
     title: 'Line Chart',

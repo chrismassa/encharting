@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SidemenuService } from '../../services/sidemenu.service';
 import { MatListModule } from '@angular/material/list';
 import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
+import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 
 @Component({
   selector: 'app-sidemenu',
@@ -19,24 +20,27 @@ import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layo
     MatListModule,
     RouterModule,
     MatIconModule,
-    LayoutModule
+    LayoutModule,
+    SlideInDirective
   ],
   template: `
     <mat-drawer-container class="container" autosize>
-      <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="mode === 'side'">
-      <mat-selection-list [multiple]="false">
-        <mat-list-option 
-          *ngFor="let item of menu" [value]="item" 
-          [routerLink]="item.path" 
-          routerLinkActive="mdc-list-item--selected" 
-          [routerLinkActiveOptions]="{exact: true}"
-        >
-          <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-          {{item.name}}
-        </mat-list-option>
-      </mat-selection-list>
+      <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="mode === 'side'" slideIn direction="left">
+        <mat-selection-list [multiple]="false">
+          <mat-list-option 
+            *ngFor="let item of menu" [value]="item" 
+            [routerLink]="item.path" 
+            routerLinkActive="mdc-list-item--selected" 
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+            {{item.name}}
+          </mat-list-option>
+        </mat-selection-list>
       </mat-drawer>
-      <ng-content></ng-content>
+      <div style="overflow-x: hidden;">
+        <ng-content></ng-content>
+      </div>
     </mat-drawer-container>
   `,
   styleUrls: ['./sidemenu.component.scss']

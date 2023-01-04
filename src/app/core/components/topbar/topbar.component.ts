@@ -9,6 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { EnchartingTheme } from 'encharting';
+import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 
 @Component({
   selector: 'app-topbar',
@@ -20,10 +21,11 @@ import { EnchartingTheme } from 'encharting';
     MatIconModule,
     MatMenuModule,
     MatListModule,
-    MatRadioModule
+    MatRadioModule,
+    SlideInDirective
   ],
   template: `
-    <mat-toolbar color="primary" class="topbar row justify-between align-center gap-20 mat-elevation-z4">
+    <mat-toolbar slideIn direction="top" color="primary" class="topbar row justify-between align-center gap-20 mat-elevation-z4">
       <button mat-icon-button (click)="sidemenu.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
