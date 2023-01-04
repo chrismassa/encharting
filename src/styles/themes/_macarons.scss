@@ -1,0 +1,80 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary-palette: (
+    50 : #ebf6fd,
+    100 : #cee8fa,
+    200 : #add8f7,
+    300 : #8cc8f4,
+    400 : #73bdf1,
+    500 : #5ab1ef,
+    600 : #52aaed,
+    700 : #48a1eb,
+    800 : #3f98e8,
+    900 : #2e88e4,
+    A100 : #ffffff,
+    A200 : #f2f8ff,
+    A400 : #bfddff,
+    A700 : #a6d0ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$accent-palette: (
+    50 : #f6f4fb,
+    100 : #e9e3f5,
+    200 : #dbd1ef,
+    300 : #ccbee8,
+    400 : #c1b0e3,
+    500 : #b6a2de,
+    600 : #af9ada,
+    700 : #a690d5,
+    800 : #9e86d1,
+    900 : #8e75c8,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #eae1ff,
+    A700 : #d8c8ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$macarons-primary: mat.define-palette($primary-palette);
+$macarons-accent: mat.define-palette($accent-palette);
+$macarons-warn: mat.define-palette(mat.$red-palette);
+
+$macarons-theme: mat.define-light-theme((color: (primary: $macarons-primary,
+                accent: $macarons-accent,
+                warn: $macarons-warn,
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        ));
+
+.macarons {
+    @include mat.all-component-colors($macarons-theme);
+}

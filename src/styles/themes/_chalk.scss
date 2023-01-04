@@ -1,0 +1,81 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary-palette: (
+    50 : #fff3f5,
+    100 : #fee0e7,
+    200 : #fecbd7,
+    300 : #fdb6c7,
+    400 : #fca7bb,
+    500 : #fc97af,
+    600 : #fc8fa8,
+    700 : #fb849f,
+    800 : #fb7a96,
+    900 : #fa6986,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffecf0,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$accent-palette: (
+    50 : #fefef2,
+    100 : #fdfcdf,
+    200 : #fbfaca,
+    300 : #f9f7b4,
+    400 : #f8f6a4,
+    500 : #f7f494,
+    600 : #f6f38c,
+    700 : #f5f181,
+    800 : #f3ef77,
+    900 : #f1ec65,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fffffa,
+    A700 : #fffee0,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$chalk-primary: mat.define-palette($primary-palette);
+$chalk-accent: mat.define-palette($accent-palette);
+$chalk-warn: mat.define-palette(mat.$red-palette);
+
+$chalk-theme: mat.define-dark-theme((color: (primary: $chalk-primary,
+                accent: $chalk-accent,
+                warn: $chalk-warn,
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        ));
+
+.chalk {
+    @include mat.all-component-colors($chalk-theme);
+}

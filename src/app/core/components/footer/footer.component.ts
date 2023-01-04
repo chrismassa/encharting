@@ -1,3 +1,4 @@
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,14 +8,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   template: `
-    <div class="footer row justify-center align-center gap-10">
+    <mat-toolbar color="accent" class="footer row justify-end align-center">
       <span>Made with</span> 
       <mat-icon color="warn">favorite</mat-icon>
-      <span>by Christian</span>
-    </div>
+      <span>by <a class="gh" href="https://github.com/chrismassa" target="_blank" >@chrismassa</a></span>
+    </mat-toolbar>
   `,
   styleUrls: ['./footer.component.scss']
 })

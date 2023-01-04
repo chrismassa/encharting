@@ -9,23 +9,23 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    loadComponent: () => import('./pages/home/home.component').then(c => c.HomeComponent)
   },
   {
     path: 'getting-started',
-    component: GettingStartedComponent
+    loadComponent: () => import('./pages/getting-started/getting-started.component').then(c => c.GettingStartedComponent)
   },
   {
     path: 'line',
-    component: LineChartComponent
+    loadComponent: () => import('./pages/line-chart/line-chart.component').then(c => c.LineChartComponent)
   },
   {
     path: 'scatter',
-    component: ScatterChartComponent
+    loadComponent: () => import('./pages/scatter-chart/scatter-chart.component').then(c => c.ScatterChartComponent)
   },
   {
     path: 'bar',
-    component: BarChartComponent
+    loadComponent: () => import('./pages/bar-chart/bar-chart.component').then(c => c.BarChartComponent)
   },
 ];
 

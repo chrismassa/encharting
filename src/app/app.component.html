@@ -1,7 +1,9 @@
-<app-topbar></app-topbar>
-<div class="middle-content">
-    <app-sidemenu>
-        <router-outlet></router-outlet>
-    </app-sidemenu>
+<div [class]="themeService.theme$ | async">
+    <app-topbar></app-topbar>
+    <div class="main-content">
+        <app-sidemenu>
+            <router-outlet></router-outlet>
+        </app-sidemenu>
+    </div>
+    <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

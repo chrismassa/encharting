@@ -4,8 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build": "ng build",
     "build:encharting": "ng build encharting",
     "watch:encharting": "ng build encharting --watch --configuration development",
+    "demo": "http-server dist/encharting-showcase -p 3000",
+    "deploy": "npm run build && npm run demo",
     "test": "ng test"
   },
   "private": true,

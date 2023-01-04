@@ -10,7 +10,7 @@ export const chalk = {
         "#d2f5a6",
         "#76f2f2"
     ],
-    "backgroundColor": "rgba(41,52,65,1)",
+    "backgroundColor": "#303030",
     "textStyle": {},
     "title": {
         "textStyle": {
@@ -186,7 +186,7 @@ export const chalk = {
             "show": false,
             "lineStyle": {
                 "color": [
-                    "#e6e6e6"
+                    "#595959"
                 ]
             }
         },
@@ -221,7 +221,7 @@ export const chalk = {
             "show": false,
             "lineStyle": {
                 "color": [
-                    "#e6e6e6"
+                    "#595959"
                 ]
             }
         },
@@ -256,7 +256,7 @@ export const chalk = {
             "show": false,
             "lineStyle": {
                 "color": [
-                    "#e6e6e6"
+                    "#595959"
                 ]
             }
         },
@@ -291,7 +291,7 @@ export const chalk = {
             "show": false,
             "lineStyle": {
                 "color": [
-                    "#e6e6e6"
+                    "#595959"
                 ]
             }
         },

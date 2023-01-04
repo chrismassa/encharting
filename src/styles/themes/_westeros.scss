@@ -1,0 +1,80 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary-palette: (
+    50 : #eaedf2,
+    100 : #cbd3de,
+    200 : #a8b5c8,
+    300 : #8597b2,
+    400 : #6b81a2,
+    500 : #516b91,
+    600 : #4a6389,
+    700 : #40587e,
+    800 : #374e74,
+    900 : #273c62,
+    A100 : #a7c5ff,
+    A200 : #74a3ff,
+    A400 : #4181ff,
+    A700 : #2870ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$accent-palette: (
+    50 : #fdf5fb,
+    100 : #fae7f4,
+    200 : #f6d7ed,
+    300 : #f2c7e5,
+    400 : #f0bbe0,
+    500 : #edafda,
+    600 : #eba8d6,
+    700 : #e89fd0,
+    800 : #e596cb,
+    900 : #e086c2,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffeef9,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$westeros-primary: mat.define-palette($primary-palette);
+$westeros-accent: mat.define-palette($accent-palette);
+$westeros-warn: mat.define-palette(mat.$red-palette);
+
+$westeros-theme: mat.define-light-theme((color: (primary: $westeros-primary,
+                accent: $westeros-accent,
+                warn: $westeros-warn,
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        ));
+
+.westeros {
+    @include mat.all-component-colors($westeros-theme);
+}

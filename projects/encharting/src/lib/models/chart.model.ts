@@ -150,3 +150,5 @@ export enum TraceStyle {
 export enum AxisType {
     VALUE = "value"
 }
+
+export type EnchartingTheme = 'chalk' | 'macarons' | 'westeros' | 'wonderland' | undefined;

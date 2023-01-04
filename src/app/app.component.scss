@@ -1,3 +1,5 @@
-.middle-content {
-    height: calc(100vh - 108px);
+@import "variables";
+
+.main-content {
+    height: calc(100vh - ($topbar-height + $footer-height));
 }

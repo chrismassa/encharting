@@ -1,11 +1,13 @@
+import { Subject, takeUntil } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterModule } from '@angular/router';
-import { Component, ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { SidemenuService } from '../../services/sidemenu.service';
 import { MatListModule } from '@angular/material/list';
+import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-sidemenu',
@@ -16,38 +18,43 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatListModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    LayoutModule
   ],
   template: `
-    <mat-drawer-container class="container">
-      <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
-      <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option *ngFor="let item of menu" [value]="item" [routerLink]="item.path" [selected]="isActive(item.path)">
+    <mat-drawer-container class="container" autosize>
+      <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="mode === 'side'">
+      <mat-selection-list [multiple]="false">
+        <mat-list-option 
+          *ngFor="let item of menu" [value]="item" 
+          [routerLink]="item.path" 
+          routerLinkActive="mdc-list-item--selected" 
+          [routerLinkActiveOptions]="{exact: true}"
+        >
           <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
           {{item.name}}
         </mat-list-option>
       </mat-selection-list>
       </mat-drawer>
-      <mat-drawer-content>
-        <div style="padding: 20px;">
-          <ng-content></ng-content>
-        </div>
-      </mat-drawer-content>
+      <ng-content></ng-content>
     </mat-drawer-container>
   `,
   styleUrls: ['./sidemenu.component.scss']
 })
-export class SidemenuComponent {
+export class SidemenuComponent implements OnDestroy {
+
+  mode: 'side' | 'over' = 'side';
+
   menu = [
     {
       name: 'Home',
       path: '',
-      icon: 'house'
+      icon: 'home'
     },
     {
       name: 'Getting Started',
       path: 'getting-started',
-      icon: 'done'
+      icon: 'code'
     },
     {
       name: 'Line Chart',
@@ -65,15 +72,56 @@ export class SidemenuComponent {
       icon: 'bar_chart'
     },
   ]
+
   @ViewChild('drawer') drawer!: MatDrawer;
-  constructor(public sidemenu: SidemenuService) {
-    this.sidemenu.toggle$.subscribe({
-      next: () => {
-        this.drawer.toggle();
-      }
-    })
+
+  destroyed = new Subject<void>();
+
+  constructor(
+    private sidemenu: SidemenuService,
+    private breakpointObserver: BreakpointObserver
+  ) {
+
+    this.sidemenu.toggle$
+      .pipe(takeUntil(this.destroyed))
+      .subscribe({
+        next: () => {
+          this.drawer.toggle();
+        },
+      })
+
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+    ])
+      .pipe(takeUntil(this.destroyed))
+      .subscribe({
+        next: ({ matches }) => {
+          if (matches) {
+            this.mode = 'over';
+          }
+        }
+      });
+
+    this.breakpointObserver.observe([
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge,
+    ])
+      .pipe(takeUntil(this.destroyed))
+      .subscribe({
+        next: ({ matches }) => {
+          if (matches) {
+            this.mode = 'side';
+          }
+        }
+      });
+
   }
-  isActive(path: string): boolean {
-    return location.pathname === `/${path}`;
+
+  ngOnDestroy() {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
+
 }

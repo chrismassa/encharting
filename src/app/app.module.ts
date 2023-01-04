@@ -8,6 +8,7 @@ import { EnchartingModule } from 'encharting';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidemenuComponent,
     FooterComponent
   ],
-  providers: [],
+  providers: [Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

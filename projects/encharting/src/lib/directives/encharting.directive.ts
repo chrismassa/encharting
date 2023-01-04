@@ -82,7 +82,7 @@ import { westeros } from '../themes/westeros.theme';
 import { wonderland } from '../themes/wonderland.theme';
 
 // Encharting Models & Constants
-import { AxisType, Bar, BasePoint, Chart, Component, Point, Trace } from '../models/chart.model';
+import { AxisType, Bar, BasePoint, Chart, Component, EnchartingTheme, Point, Trace } from '../models/chart.model';
 import { BAR_LEGEND_ICON, DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, RESTORE, SAVE_AS_SVG, TRACE_LEGEND_ICON, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
 
 @Directive({
@@ -98,10 +98,10 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
   /**
    * Default Encharting Themes
    *
-   * @type {('chalk' | 'macarons' | 'westeros' | 'wonderland' | undefined)}
+   * @type {(EnchartingTheme)}
    * @memberof EnchartingDirective
    */
-  @Input() theme: 'chalk' | 'macarons' | 'westeros' | 'wonderland' | undefined = undefined;
+  @Input() theme: EnchartingTheme = undefined;
   /**
    * CSS Font Family property valid for the whole chart style.
    * If you want to use an external font, you must import it first.
@@ -224,12 +224,13 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
     return {
       title: {
         text: chart.title ?? DEFAULT_CHART_NAME,
+        padding: 20,
         textStyle: {
           fontFamily: font
         },
       },
       grid: {
-        width: '70%'
+        width: '75%'
       },
       legend: {
         show: chart.showLegend ?? true,
@@ -259,6 +260,7 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
       toolbox: {
         orient: 'horizontal',
         left: 'center',
+        padding: 20,
         feature: {
           dataZoom: {
             title: {
