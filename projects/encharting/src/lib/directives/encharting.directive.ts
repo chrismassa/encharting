@@ -1,3 +1,4 @@
+import { SCATTER_LEGEND_ICON } from './../constants/chart.constants';
 // Angular Imports
 import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChange } from '@angular/core';
 
@@ -83,7 +84,7 @@ import { wonderland } from '../themes/wonderland.theme';
 
 // Encharting Models & Constants
 import { AxisType, Bar, BasePoint, Chart, Component, EnchartingTheme, Point, Trace } from '../models/chart.model';
-import { BAR_LEGEND_ICON, DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, RESTORE, SAVE_AS_SVG, TRACE_LEGEND_ICON, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
+import { BAR_LEGEND_ICON, DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, LINE_LEGEND_ICON, RESTORE, SAVE_AS_SVG, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
 
 @Directive({
   selector: 'div[encharting]'
@@ -336,8 +337,9 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
   getLegendIconByComponentType(type: 'line' | 'scatter' | 'bar'): string {
     switch (type) {
       case 'line':
+        return LINE_LEGEND_ICON;
       case 'scatter':
-        return TRACE_LEGEND_ICON;
+        return SCATTER_LEGEND_ICON;
       case 'bar':
         return BAR_LEGEND_ICON;
       default:
@@ -413,7 +415,7 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
     return {
       type: 'bar',
       name: bar.name,
-      showBackground: true,
+      showBackground: bar.showBackground ?? false,
       barWidth: bar.barWidth ?? 50,
       itemStyle: {
         opacity: 0.8,

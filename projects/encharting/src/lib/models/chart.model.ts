@@ -113,6 +113,7 @@ export interface Trace extends BasePlot {
 export interface Bar extends BasePlot {
     type: 'bar';
     barWidth?: number;
+    showBackground?: boolean;
 }
 
 export interface Point extends BasePoint {
