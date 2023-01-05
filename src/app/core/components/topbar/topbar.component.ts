@@ -28,11 +28,12 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
   ],
   template: `
     <mat-toolbar slideIn direction="top" color="primary" class="topbar row justify-between align-center gap-20 mat-elevation-z4">
+      <button mat-icon-button (click)="sidemenu.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
       <div class="row gap-20 align-center">
-        <button mat-icon-button (click)="sidemenu.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <h3 routerLink="/">Encharting</h3>
+        <img width="30" src="assets/logo/logo.png">
+        <h2 routerLink="/">Encharting</h2>
       </div>
       <button mat-icon-button [matMenuTriggerFor]="themes">
         <mat-icon>format_color_fill</mat-icon>

@@ -22,5 +22,11 @@
     "data-visualization",
     "simple",
     "directive"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrismassa/encharting.git"
+  },
+  "homepage": "https://encharting.netlify.app",
+  "license": "MIT"
 }
