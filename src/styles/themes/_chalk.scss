@@ -34,20 +34,20 @@ $primary-palette: (
 );
 
 $accent-palette: (
-    50 : #fefef2,
-    100 : #fdfcdf,
-    200 : #fbfaca,
-    300 : #f9f7b4,
-    400 : #f8f6a4,
-    500 : #f7f494,
-    600 : #f6f38c,
-    700 : #f5f181,
-    800 : #f3ef77,
-    900 : #f1ec65,
+    50 : #f1fef9,
+    100 : #dbfdf1,
+    200 : #c3fbe7,
+    300 : #abf9dd,
+    400 : #99f8d6,
+    500 : #87f7cf,
+    600 : #7ff6ca,
+    700 : #74f5c3,
+    800 : #6af3bd,
+    900 : #57f1b2,
     A100 : #ffffff,
     A200 : #ffffff,
-    A400 : #fffffa,
-    A700 : #fffee0,
+    A400 : #eefff8,
+    A700 : #d4ffed,
     contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
@@ -64,6 +64,7 @@ $accent-palette: (
         A700 : #000000,
     )
 );
+
 $chalk-primary: mat.define-palette($primary-palette);
 $chalk-accent: mat.define-palette($accent-palette);
 $chalk-warn: mat.define-palette(mat.$red-palette);

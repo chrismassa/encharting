@@ -15,18 +15,6 @@ export class SlideInDirective {
   constructor(private el: ElementRef<HTMLElement>) { }
 
   ngAfterViewInit(): void {
-    console.log(
-      {
-        targets: this.el.nativeElement,
-        ...this.getTranslationFromDirection(
-          this.direction === 'left' || this.direction === 'right' ? this.el.nativeElement.offsetWidth : this.el.nativeElement.offsetHeight,
-          this.direction
-        ),
-        duration: this.duration,
-        easing: 'easeOutExpo'
-      }
-    );
-    
     anime({
       targets: this.el.nativeElement,
       ...this.getTranslationFromDirection(

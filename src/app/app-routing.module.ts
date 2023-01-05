@@ -9,7 +9,8 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
 const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./pages/home/home.component').then(c => c.HomeComponent)
+    redirectTo: 'getting-started',
+    pathMatch: 'full'
   },
   {
     path: 'getting-started',

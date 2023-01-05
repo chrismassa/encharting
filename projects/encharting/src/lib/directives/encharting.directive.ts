@@ -244,7 +244,7 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
         selected: chart.components.reduce((accumulator, plot: Component) => ({ ...accumulator, [plot.name as string]: plot.selectedByDefault ?? true }), {}),
         orient: 'vertical',
         left: 'right',
-        padding: [60, 20],
+        padding: [60, 40],
         type: 'scroll',
         textStyle: {
           width: 120,

@@ -1,3 +1,54 @@
 <div class="wrapper">
-    <h1 slideIn>Home</h1>
+    <h1 slideIn>Getting Started</h1>
+    <div class="col gap-20">
+        <div class="row justify-center gap-10">
+            <img class="mat-elevation-z4" slideIn alt="npm"
+                src="https://img.shields.io/npm/v/encharting?style=for-the-badge">
+            <img class="mat-elevation-z4" slideIn direction="right" alt="npm"
+                src="https://img.shields.io/npm/dm/encharting?style=for-the-badge">
+        </div>
+        <div class="gap-30">
+            <p slideIn>
+                <strong>Encharting</strong> is an Angular (v15+) library designed to simplify the process of 2D charts
+                generation.
+            </p>
+            <p slideIn>
+                Internally it uses the beautiful Apache Echarts Javascript library to generate all the basic chart
+                types and simply using the <strong>encharting</strong> directive in a div element, an svg canvas is
+                created.
+            </p>
+            <h2 slideIn>Install Encharting</h2>
+            <p slideIn>
+                To start using Encharting, open a terminal in your Angular Project folder and execute the following
+                commands:
+            </p>
+            <div class="row gap-20">
+                <app-code-snippet direction="left" class="w-50" [code]="npmInstall" language="bash"></app-code-snippet>
+                <app-code-snippet direction="right" class="w-50" [code]="yarnInstall"
+                    language="bash"></app-code-snippet>
+            </div>
+            <h2 slideIn>Display an empty Chart</h2>
+            <p slideIn>
+                Let's display an empty chart canvas in your app and verify that everything works.
+                You need to import the EnchartingModule by adding the following lines to
+                your app.module.ts file (or every other app submodule you want).
+            </p>
+            <app-code-snippet fileName="app.module.ts" language="ts" [code]="import"></app-code-snippet>
+            <p slideIn>
+                Then in the <code>{{'app.component.html'}}</code> add the div tag like so:
+            </p>
+            <app-code-snippet fileName="app.component.html" language="html" [code]="htmlCode"></app-code-snippet>
+            <p slideIn>Then you should be able to see in the page the following output:</p>
+            <div class="row justify-center" slideIn>
+                <div encharting></div>
+            </div>
+            <p slideIn>Now let's try to add some data to our chart! Choose one of the following:</p>
+            <div class="row gap-20">
+                <button slideIn mat-raised-button color="accent" routerLink="line">Line Chart</button>
+                <button slideIn direction="top" mat-raised-button color="accent" routerLink="scatter">Scatter
+                    Chart</button>
+                <button slideIn direction="right" mat-raised-button color="accent" routerLink="bar">Bar Chart</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -51,11 +51,6 @@ export class SidemenuComponent implements OnDestroy {
 
   menu = [
     {
-      name: 'Home',
-      path: '',
-      icon: 'home'
-    },
-    {
       name: 'Getting Started',
       path: 'getting-started',
       icon: 'code'

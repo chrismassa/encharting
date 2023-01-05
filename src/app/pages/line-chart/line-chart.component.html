@@ -1,3 +1,22 @@
-<div slideIn direction="right" encharting width="100%" height="500px" [config]="config"
+<div slideIn direction="top" encharting width="100%" height="500px" [config]="config"
     [theme]="(themeService.theme$ | async) ?? undefined">
 </div>
+<mat-divider></mat-divider>
+<mat-tab-group backgroundColor="accent" mat-stretch-tabs="false" mat-align-tabs="start" dynamicHeight>
+    <mat-tab label="Angular Cli">
+        <div class="code">
+            <app-code-snippet language="bash" [code]="bashCode"></app-code-snippet>
+        </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+        <div class="code">
+            <app-code-snippet fileName="line-chart.component.html" language="html" [code]="htmlCode"></app-code-snippet>
+        </div>
+    </mat-tab>
+    <mat-tab label="Typescript">
+        <div class="code">
+            <app-code-snippet fileName="line-chart.component.ts" language="typescript"
+                [code]="tsCode"></app-code-snippet>
+        </div>
+    </mat-tab>
+</mat-tab-group>

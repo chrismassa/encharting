@@ -9,6 +9,11 @@
 @import "chalk";
 @import "wonderland";
 
+/* Prismjs theme */
+@import 'prismjs-darcula-theme/darcula.css';
+
+/* You can add global styles to this file, and also import other style files */
+
 html,
 body {
     height: 100%;

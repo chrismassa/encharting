@@ -1,26 +1,46 @@
-import anime from 'animejs/lib/anime.es.js';
-import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
+import { CodeSnippetComponent } from 'src/app/shared/components/code-snippet/code-snippet.component';
+import { EnchartingModule } from 'encharting';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    SlideInDirective
+    CodeSnippetComponent,
+    SlideInDirective,
+    EnchartingModule,
+    MatButtonModule,
+    RouterModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  ngOnInit(): void {
-    anime({
-      targets: 'div.hello',
-      translateX: 250,
-      rotate: '1turn',
-      backgroundColor: '#FFF',
-      duration: 800
-    });
-  }
+export class HomeComponent {
+  npmInstall: string = `
+    # If you use npm
+    npm install encharting --save
+  `;
+  yarnInstall: string = `
+    # If you use yarn
+    yarn add encharting
+  `;
+  import: string = `
+    import { EnchartingModule } from 'encharting';
+
+    @NgModule ({
+      imports: [
+        // ...
+        EnchartingModule,
+      ]
+    })
+    class AppModule {}
+  `;
+  htmlCode: string = `
+    <div encharting></div>
+  `;
 }

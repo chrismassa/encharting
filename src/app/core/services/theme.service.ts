@@ -12,7 +12,7 @@ export class ThemeService {
     value: EnchartingTheme
   }[] = [
       {
-        name: 'Material',
+        name: 'Default',
         value: undefined
       },
       {

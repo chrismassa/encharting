@@ -2,4 +2,8 @@
 
 .topbar {
     height: $topbar-height;
+
+    h3 {
+        cursor: pointer;
+    }
 }

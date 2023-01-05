@@ -3,6 +3,11 @@
     flex-direction: row;
 }
 
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
 .justify-center {
     justify-content: center;
 }
@@ -13,6 +18,10 @@
 
 .justify-between {
     justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
 }
 
 .align-center {
@@ -45,4 +54,31 @@
 
 .gap-30 {
     gap: 30px;
+}
+
+@for $i from 1 through 100 {
+    .w-#{$i} {
+        width: #{$i}#{"%"};
+    }
+}
+
+@for $i from 1 through 100 {
+    .h-#{$i} {
+        height: #{$i}#{"%"};
+    }
+}
+
+@for $i from 1 through 100 {
+    .w-md-#{$i} {
+        @media (width <=768px) {
+            width: #{$i}#{"%"};
+        }
+    }
+}
+
+.col-md {
+    @media (width <=768px) {
+        display: flex;
+        flex-direction: column;
+    }
 }

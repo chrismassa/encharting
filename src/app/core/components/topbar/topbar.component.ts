@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,14 +23,17 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
     MatMenuModule,
     MatListModule,
     MatRadioModule,
-    SlideInDirective
+    SlideInDirective,
+    RouterModule
   ],
   template: `
     <mat-toolbar slideIn direction="top" color="primary" class="topbar row justify-between align-center gap-20 mat-elevation-z4">
-      <button mat-icon-button (click)="sidemenu.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Encharting Docs</span>
+      <div class="row gap-20 align-center">
+        <button mat-icon-button (click)="sidemenu.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h3 routerLink="/">Encharting</h3>
+      </div>
       <button mat-icon-button [matMenuTriggerFor]="themes">
         <mat-icon>format_color_fill</mat-icon>
       </button>
