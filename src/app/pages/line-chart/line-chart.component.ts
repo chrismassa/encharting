@@ -46,6 +46,8 @@ export class LineChartComponent {
             
       config: Chart = {
         title: 'Line Chart',
+        xAxisName: 'Line X',
+        yAxisName: 'Line Y',
         components: [
           {
             type: 'line',
@@ -99,6 +101,8 @@ export class LineChartComponent {
 
   config: Chart = {
     title: 'Line Chart',
+    xAxisName: 'Line X',
+    yAxisName: 'Line Y',
     components: [
       {
         type: 'line',
