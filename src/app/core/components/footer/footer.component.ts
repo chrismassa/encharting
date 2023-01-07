@@ -16,7 +16,7 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
   template: `
     <mat-toolbar color="accent" class="footer row justify-between align-center" slideIn direction="bottom">
       <!-- <a href="https://www.flaticon.com/free-icons/business-and-finance" title="business and finance icons">Business and finance icons created by Freepik - Flaticon</a> -->
-      <div class="row justify-center align-center gap-20">
+      <div class="row justify-center align-center gap-10">
         <a href="https://github.com/chrismassa/encharting" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path
@@ -26,10 +26,10 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
         <a href="https://www.npmjs.com/package/encharting" target="_blank" rel="noopener noreferrer">
           <svg id="IconChangeColor" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
             height="50" width="50">
-            <rect x="227.6" y="213.1" width="28.4" height="57.1" fill="#cb3837"></rect>
+            <rect x="227.6" y="213.1" width="28.4" height="57.1" fill="#000"></rect>
             <path
               d="M0,156V327.4H142.2V356H256V327.4H512V156ZM142.2,298.9H113.8V213.2H85.3v85.7H28.4V184.6H142.2Zm142.2,0H227.5v28.6H170.6V184.6H284.4Zm199.2,0H455.2V213.2H426.8v85.7H398.4V213.2H370v85.7H313.1V184.6H483.8V298.9Z"
-              id="mainIconPathAttribute" filter="url(#shadow)" fill="#cb3837"></path>
+              id="mainIconPathAttribute" filter="url(#shadow)" fill="#000"></path>
             <filter id="shadow">
               <feDropShadow id="shadowValue" stdDeviation=".5" dx="0" dy="0" flood-color="black">
               </feDropShadow>

@@ -82,3 +82,9 @@
         flex-direction: column;
     }
 }
+.col-sm {
+    @media (width <=576px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
