@@ -7,7 +7,7 @@ Encharting is an Angular library designed to simplify the process of 2D charts g
 After creating a new Angular project simply run:
 
 ```properties
-npm install encharting
+npm install encharting --save
 ``` 
 
 # Usage
@@ -15,11 +15,11 @@ npm install encharting
 - Firstly, import EnchartingModule in your app module (or any other proper Angular module).
   
     ```typescript
-    import { KiwiChartModule } from '@kiwibit/chart';
+    import { EnchartingModule } from 'encharting';
 
     @NgModule({
         imports: [
-            KiwiChartModule
+            EnchartingModule
         ],
     })
     export class AppModule {}
@@ -30,10 +30,19 @@ npm install encharting
   <div encharting></div>
   ```
 
-# API
+# Input API
 
-| Name                | Type   | Default            | Description                      |
-| ------------------- | ------ | ------------------ | -------------------------------- |
-| **@Input** [config] | Chart  | { components: [] } | The chart configuration object   |
-| **@Input** [width]  | string | 600px              | The width of the canvas element  |
-| **@Input** [height] | string | 400px              | The height of the canvas element |
+| Name                    | Type            | Default            | Description                                            |
+| ----------------------- | --------------- | ------------------ | ------------------------------------------------------ |
+| **@Input** [config]     | Chart           | { components: [] } | The chart configuration object                         |
+| **@Input** [width]      | string          | 600px              | The width of the canvas element (use same css values)  |
+| **@Input** [height]     | string          | 400px              | The height of the canvas element (use same css values) |
+| **@Input** [theme]      | EnchartingTheme | undefined          | The theme of the chart                                 |
+| **@Input** [fontFamily] | string          |                    | The Font Family of the chart                           |
+
+# Output API
+
+| Name                       | Type           | Description                                                                                              |
+| -------------------------- | -------------- | -------------------------------------------------------------------------------------------------------- |
+| **@Output** (onClick)      | ECElementEvent | Emits an ECElementEvent object when clicking on a component of the chart (for example a point of a line) |
+| **@Output** (onBlankClick) | BasePoint      | Emits a BasePoint object when clicking on a blank space of the chart                                     |
