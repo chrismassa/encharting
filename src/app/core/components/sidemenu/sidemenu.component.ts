@@ -26,17 +26,14 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
   template: `
     <mat-drawer-container class="container" autosize>
       <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="mode === 'side'" slideIn direction="left">
-        <mat-selection-list [multiple]="false">
-          <mat-list-option 
-            *ngFor="let item of menu" [value]="item" 
-            [routerLink]="item.path" 
+        <mat-nav-list>
+          <mat-list-item class="nav-item" *ngFor="let link of menu"
+            [routerLink]="link.path"  
             routerLinkActive="mdc-list-item--selected" 
-            [routerLinkActiveOptions]="{exact: true}"
-          >
-            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-            {{item.name}}
-          </mat-list-option>
-        </mat-selection-list>
+            [routerLinkActiveOptions]="{exact: true}">
+            <a>{{ link.name }}</a>
+          </mat-list-item>
+        </mat-nav-list>
       </mat-drawer>
       <div style="overflow-x: hidden;">
         <ng-content></ng-content>
