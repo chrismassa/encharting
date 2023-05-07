@@ -16,7 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
     SlideInDirective,
     MatTabsModule,
     CodeSnippetComponent,
-    MatDividerModule
+    MatDividerModule,
   ],
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss']

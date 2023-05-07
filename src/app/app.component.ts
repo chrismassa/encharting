@@ -5,6 +5,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 import { SidemenuComponent } from './core/components/sidemenu/sidemenu.component';
 import { TopbarComponent } from './core/components/topbar/topbar.component';
+import { EnchartingTheme } from 'encharting';
 
 @Component({
   selector: 'app-root',
@@ -34,4 +35,9 @@ import { TopbarComponent } from './core/components/topbar/topbar.component';
     FooterComponent,
   ]
 })
-export class AppComponent { themeService = inject(ThemeService); }
+export class AppComponent {
+  themeService = inject(ThemeService);
+  constructor() {
+    document.body.classList.add(localStorage.getItem('encharting-theme') as EnchartingTheme ?? 'default');
+  }
+}

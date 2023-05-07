@@ -10,59 +10,61 @@
 
 @import "mixins";
 
+$default-typography: mat.define-typography-config(
+  $font-family: "Nunito",
+);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 // In this case we have manually defined the color palettes in the _variables.scss file.
 
 $primary-palette: (
-  50: #fff3f5,
-  100: #fee0e7,
-  200: #fecbd7,
-  300: #fdb6c7,
-  400: #fca7bb,
-  500: #fc97af,
-  600: #fc8fa8,
-  700: #fb849f,
-  800: #fb7a96,
-  900: #fa6986,
-  A100: #ffffff,
-  A200: #ffffff,
-  A400: #ffffff,
-  A700: #ffecf0,
+  50: #eaeef8,
+  100: #ccd4ee,
+  200: #aab8e3,
+  300: #879bd7,
+  400: #6e85cf,
+  500: #5470c6,
+  600: #4d68c0,
+  700: #435db9,
+  800: #3a53b1,
+  900: #2941a4,
+  A100: #e5eaff,
+  A200: #b2c0ff,
+  A400: #7f96ff,
+  A700: #6681ff,
   contrast: (
     50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
     400: #000000,
-    500: #000000,
-    600: #000000,
-    700: #000000,
-    800: #000000,
-    900: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
     A100: #000000,
     A200: #000000,
     A400: #000000,
     A700: #000000,
   ),
 );
-
 $accent-palette: (
-  50: #f1fef9,
-  100: #dbfdf1,
-  200: #c3fbe7,
-  300: #abf9dd,
-  400: #99f8d6,
-  500: #87f7cf,
-  600: #7ff6ca,
-  700: #74f5c3,
-  800: #6af3bd,
-  900: #57f1b2,
+  50: #f2f9ee,
+  100: #def0d6,
+  200: #c8e6ba,
+  300: #b2db9e,
+  400: #a2d48a,
+  500: #91cc75,
+  600: #89c76d,
+  700: #7ec062,
+  800: #74b958,
+  900: #62ad45,
   A100: #ffffff,
-  A200: #ffffff,
-  A400: #eefff8,
-  A700: #d4ffed,
+  A200: #ddffd1,
+  A400: #b8ff9e,
+  A700: #a5ff85,
   contrast: (
     50: #000000,
     100: #000000,
@@ -81,28 +83,30 @@ $accent-palette: (
   ),
 );
 
-$chalk-primary: mat.define-palette($primary-palette);
-$chalk-accent: mat.define-palette($accent-palette);
+$default-primary: mat.define-palette($primary-palette);
+$default-accent: mat.define-palette($accent-palette);
 // The warn palette is optional (defaults to red).
-$chalk-warn: mat.define-palette(mat.$red-palette);
+$default-warn: mat.define-palette(mat.$red-palette);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$chalk-theme: mat.define-dark-theme(
+$default-theme: mat.define-light-theme(
   (
     color: (
-      primary: $chalk-primary,
-      accent: $chalk-accent,
-      warn: $chalk-warn,
+      primary: $default-primary,
+      accent: $default-accent,
+      warn: $default-warn,
     ),
+    typography: $default-typography,
   )
 );
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
+@include mat.all-component-themes($default-theme);
+
 :root {
-  .chalk {
-    @include mat.all-component-colors($chalk-theme);
-    @include generate-colors-variables($chalk-theme);
+  .default {
+    @include generate-colors-variables($default-theme);
   }
 }

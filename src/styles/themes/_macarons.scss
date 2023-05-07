@@ -1,80 +1,107 @@
-@use '@angular/material' as mat;
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
 @include mat.core();
 
+@import "mixins";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// In this case we have manually defined the color palettes in the _variables.scss file.
+
 $primary-palette: (
-    50 : #ebf6fd,
-    100 : #cee8fa,
-    200 : #add8f7,
-    300 : #8cc8f4,
-    400 : #73bdf1,
-    500 : #5ab1ef,
-    600 : #52aaed,
-    700 : #48a1eb,
-    800 : #3f98e8,
-    900 : #2e88e4,
-    A100 : #ffffff,
-    A200 : #f2f8ff,
-    A400 : #bfddff,
-    A700 : #a6d0ff,
-    contrast: (50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #ebf6fd,
+  100: #cee8fa,
+  200: #add8f7,
+  300: #8cc8f4,
+  400: #73bdf1,
+  500: #5ab1ef,
+  600: #52aaed,
+  700: #48a1eb,
+  800: #3f98e8,
+  900: #2e88e4,
+  A100: #ffffff,
+  A200: #f2f8ff,
+  A400: #bfddff,
+  A700: #a6d0ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 $accent-palette: (
-    50 : #eaf9f9,
-    100 : #ccf0f1,
-    200 : #aae7e8,
-    300 : #87ddde,
-    400 : #6ed5d7,
-    500 : #54ced0,
-    600 : #4dc9cb,
-    700 : #43c2c4,
-    800 : #3abcbe,
-    900 : #29b0b3,
-    A100 : #f3ffff,
-    A200 : #c0feff,
-    A400 : #8dfdff,
-    A700 : #74fcff,
-    contrast: (50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #eaf9f9,
+  100: #ccf0f1,
+  200: #aae7e8,
+  300: #87ddde,
+  400: #6ed5d7,
+  500: #54ced0,
+  600: #4dc9cb,
+  700: #43c2c4,
+  800: #3abcbe,
+  900: #29b0b3,
+  A100: #f3ffff,
+  A200: #c0feff,
+  A400: #8dfdff,
+  A700: #74fcff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
+
 $macarons-primary: mat.define-palette($primary-palette);
 $macarons-accent: mat.define-palette($accent-palette);
+// The warn palette is optional (defaults to red).
 $macarons-warn: mat.define-palette(mat.$red-palette);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$macarons-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $macarons-primary,
+      accent: $macarons-accent,
+      warn: $macarons-warn,
+    ),
+  )
+);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
 
-$macarons-theme: mat.define-light-theme((color: (primary: $macarons-primary,
-                accent: $macarons-accent,
-                warn: $macarons-warn,
-            ),
-            typography: mat.define-typography-config(),
-            density: 0,
-        ));
-
-.macarons {
+:root {
+  .macarons {
     @include mat.all-component-colors($macarons-theme);
+    @include generate-colors-variables($macarons-theme);
+  }
 }

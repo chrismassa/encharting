@@ -103,7 +103,7 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
    * @type {(EnchartingTheme)}
    * @memberof EnchartingDirective
    */
-  @Input() theme: EnchartingTheme = undefined;
+  @Input() theme: EnchartingTheme = 'default';
   /**
    * CSS Font Family property valid for the whole chart style.
    * If you want to use an external font, you must import it first.

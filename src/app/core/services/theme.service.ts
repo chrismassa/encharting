@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { EnchartingTheme } from 'projects/encharting/src/public-api';
+import { EnchartingTheme } from 'encharting';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ThemeService {
   }[] = [
       {
         name: 'Default',
-        value: undefined
+        value: 'default'
       },
       {
         name: 'Macarons',
@@ -33,6 +33,14 @@ export class ThemeService {
       },
     ];
 
-  theme$ = new BehaviorSubject<EnchartingTheme>(localStorage.getItem('encharting-theme') as EnchartingTheme);
+  theme$ = new BehaviorSubject<EnchartingTheme>(
+    localStorage.getItem('encharting-theme') as EnchartingTheme ?? 'default'
+  );
+
+  switchTheme(theme: EnchartingTheme): void {
+    document.body.classList.replace(this.theme$.value, theme);
+    localStorage.setItem('encharting-theme', theme);
+    this.theme$.next(theme);
+  }
 
 }

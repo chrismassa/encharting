@@ -55,7 +55,6 @@ export class TopbarComponent {
     public themeService: ThemeService
   ) { }
   switchTheme(theme: EnchartingTheme): void {
-    this.themeService.theme$.next(theme);
-    localStorage.setItem('encharting-theme', theme ?? JSON.stringify(theme));
+    this.themeService.switchTheme(theme);
   }
 }

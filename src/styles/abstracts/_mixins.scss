@@ -1,0 +1,103 @@
+@use "@angular/material" as mat;
+
+@mixin generate-colors-variables($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map-get($color-config, "primary");
+  // Get the accent color palette from the color-config.
+  $accent-palette: map-get($color-config, "accent");
+  // Get the warn color palette from the color-config.
+  $warn-palette: map-get($color-config, "warn");
+
+  // Primary Colors
+  --primary-50: #{map-get($primary-palette, 50)};
+  --primary-100: #{map-get($primary-palette, 100)};
+  --primary-200: #{map-get($primary-palette, 200)};
+  --primary-300: #{map-get($primary-palette, 300)};
+  --primary-400: #{map-get($primary-palette, 400)};
+  --primary-500: #{map-get($primary-palette, 500)};
+  --primary-600: #{map-get($primary-palette, 600)};
+  --primary-700: #{map-get($primary-palette, 700)};
+  --primary-800: #{map-get($primary-palette, 800)};
+  --primary-900: #{map-get($primary-palette, 900)};
+  --primary-A100: #{map-get($primary-palette, A100)};
+  --primary-A200: #{map-get($primary-palette, A200)};
+  --primary-A400: #{map-get($primary-palette, A400)};
+  --primary-A700: #{map-get($primary-palette, A700)};
+  --primary-contrast-50: #{map-get($primary-palette, contrast, 50)};
+  --primary-contrast-100: #{map-get($primary-palette, contrast, 100)};
+  --primary-contrast-200: #{map-get($primary-palette, contrast, 200)};
+  --primary-contrast-300: #{map-get($primary-palette, contrast, 300)};
+  --primary-contrast-400: #{map-get($primary-palette, contrast, 400)};
+  --primary-contrast-500: #{map-get($primary-palette, contrast, 500)};
+  --primary-contrast-600: #{map-get($primary-palette, contrast, 600)};
+  --primary-contrast-700: #{map-get($primary-palette, contrast, 700)};
+  --primary-contrast-800: #{map-get($primary-palette, contrast, 800)};
+  --primary-contrast-900: #{map-get($primary-palette, contrast, 900)};
+  --primary-contrast-A100: #{map-get($primary-palette, contrast, A100)};
+  --primary-contrast-A200: #{map-get($primary-palette, contrast, A200)};
+  --primary-contrast-A400: #{map-get($primary-palette, contrast, A400)};
+  --primary-contrast-A700: #{map-get($primary-palette, contrast, A700)};
+
+  // Accent Colors
+  --accent-50: #{map-get($accent-palette, 50)};
+  --accent-100: #{map-get($accent-palette, 100)};
+  --accent-200: #{map-get($accent-palette, 200)};
+  --accent-300: #{map-get($accent-palette, 300)};
+  --accent-400: #{map-get($accent-palette, 400)};
+  --accent-500: #{map-get($accent-palette, 500)};
+  --accent-600: #{map-get($accent-palette, 600)};
+  --accent-700: #{map-get($accent-palette, 700)};
+  --accent-800: #{map-get($accent-palette, 800)};
+  --accent-900: #{map-get($accent-palette, 900)};
+  --accent-A100: #{map-get($accent-palette, A100)};
+  --accent-A200: #{map-get($accent-palette, A200)};
+  --accent-A400: #{map-get($accent-palette, A400)};
+  --accent-A700: #{map-get($accent-palette, A700)};
+  --accent-contrast-50: #{map-get($accent-palette, contrast, 50)};
+  --accent-contrast-100: #{map-get($accent-palette, contrast, 100)};
+  --accent-contrast-200: #{map-get($accent-palette, contrast, 200)};
+  --accent-contrast-300: #{map-get($accent-palette, contrast, 300)};
+  --accent-contrast-400: #{map-get($accent-palette, contrast, 400)};
+  --accent-contrast-500: #{map-get($accent-palette, contrast, 500)};
+  --accent-contrast-600: #{map-get($accent-palette, contrast, 600)};
+  --accent-contrast-700: #{map-get($accent-palette, contrast, 700)};
+  --accent-contrast-800: #{map-get($accent-palette, contrast, 800)};
+  --accent-contrast-900: #{map-get($accent-palette, contrast, 900)};
+  --accent-contrast-A100: #{map-get($accent-palette, contrast, A100)};
+  --accent-contrast-A200: #{map-get($accent-palette, contrast, A200)};
+  --accent-contrast-A400: #{map-get($accent-palette, contrast, A400)};
+  --accent-contrast-A700: #{map-get($accent-palette, contrast, A700)};
+
+  // Warn Colors
+  --warn-50: #{map-get($warn-palette, 50)};
+  --warn-100: #{map-get($warn-palette, 100)};
+  --warn-200: #{map-get($warn-palette, 200)};
+  --warn-300: #{map-get($warn-palette, 300)};
+  --warn-400: #{map-get($warn-palette, 400)};
+  --warn-500: #{map-get($warn-palette, 500)};
+  --warn-600: #{map-get($warn-palette, 600)};
+  --warn-700: #{map-get($warn-palette, 700)};
+  --warn-800: #{map-get($warn-palette, 800)};
+  --warn-900: #{map-get($warn-palette, 900)};
+  --warn-A100: #{map-get($warn-palette, A100)};
+  --warn-A200: #{map-get($warn-palette, A200)};
+  --warn-A400: #{map-get($warn-palette, A400)};
+  --warn-A700: #{map-get($warn-palette, A700)};
+  --warn-contrast-50: #{map-get($warn-palette, contrast, 50)};
+  --warn-contrast-100: #{map-get($warn-palette, contrast, 100)};
+  --warn-contrast-200: #{map-get($warn-palette, contrast, 200)};
+  --warn-contrast-300: #{map-get($warn-palette, contrast, 300)};
+  --warn-contrast-400: #{map-get($warn-palette, contrast, 400)};
+  --warn-contrast-500: #{map-get($warn-palette, contrast, 500)};
+  --warn-contrast-600: #{map-get($warn-palette, contrast, 600)};
+  --warn-contrast-700: #{map-get($warn-palette, contrast, 700)};
+  --warn-contrast-800: #{map-get($warn-palette, contrast, 800)};
+  --warn-contrast-900: #{map-get($warn-palette, contrast, 900)};
+  --warn-contrast-A100: #{map-get($warn-palette, contrast, A100)};
+  --warn-contrast-A200: #{map-get($warn-palette, contrast, A200)};
+  --warn-contrast-A400: #{map-get($warn-palette, contrast, A400)};
+  --warn-contrast-A700: #{map-get($warn-palette, contrast, A700)};
+}
