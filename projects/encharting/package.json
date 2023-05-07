@@ -1,13 +1,13 @@
 {
   "name": "encharting",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
   },
   "dependencies": {
-    "@types/echarts": "^4.9.16",
-    "echarts": "^5.4.1",
+    "@types/echarts": "^4.9.17",
+    "echarts": "^5.4.2",
     "tslib": "^2.3.0"
   },
   "keywords": [
