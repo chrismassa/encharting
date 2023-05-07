@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 import { CodeSnippetComponent } from 'src/app/shared/components/code-snippet/code-snippet.component';
-import { EnchartingModule } from 'encharting';
+import { EnchartingDirective } from 'encharting';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     CodeSnippetComponent,
     SlideInDirective,
-    EnchartingModule,
+    EnchartingDirective,
     MatButtonModule,
     RouterModule,
     MatIconModule
@@ -35,12 +35,12 @@ export class GettingStartedComponent {
   `;
 
   import: string = `
-    import { EnchartingModule } from 'encharting';
+    import { EnchartingDirective } from 'encharting';
 
     @NgModule ({
       imports: [
         // ...
-        EnchartingModule,
+        EnchartingDirective,
       ]
     })
     class AppModule {}

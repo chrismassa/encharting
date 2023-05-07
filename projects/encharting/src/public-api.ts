@@ -4,4 +4,4 @@
 
 export * from './lib/directives/encharting.directive';
 export * from './lib/models/chart.model';
-export * from './lib/encharting.module';
+

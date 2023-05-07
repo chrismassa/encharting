@@ -10,6 +10,28 @@ import { SlideInDirective } from '../../directives/slide-in.directive';
 
 @Component({
   selector: 'app-code-snippet',
+  template: `
+    <small class="file-name" *ngIf="fileName">{{fileName}}</small>
+    <pre slideIn [direction]="direction" class="mat-elevation-z8">
+        <code #codeElement [class]="'language-'+language">{{code}}</code>
+    </pre>
+  `,
+  styles: [`
+    pre {
+        border-radius: 5px;
+        overflow: auto;
+        margin: 0;
+    }
+
+    .file-name {
+        font-size: x-small;
+        background-color: #2b2b2b;
+        padding: 10px;
+        color: #a3b7c6;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+  `],
   standalone: true,
   imports: [
     CommonModule,
@@ -17,8 +39,6 @@ import { SlideInDirective } from '../../directives/slide-in.directive';
     MatButtonModule,
     MatIconModule
   ],
-  templateUrl: './code-snippet.component.html',
-  styleUrls: ['./code-snippet.component.scss']
 })
 export class CodeSnippetComponent implements AfterViewInit {
 

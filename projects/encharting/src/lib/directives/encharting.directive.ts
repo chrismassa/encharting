@@ -1,6 +1,6 @@
 import { SCATTER_LEGEND_ICON } from './../constants/chart.constants';
 // Angular Imports
-import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChange } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output } from '@angular/core';
 
 /* Echarts tree-shakeable Imports */
 import * as echarts from 'echarts/core';
@@ -87,7 +87,8 @@ import { AxisType, Bar, BasePoint, Chart, Component, EnchartingTheme, Point, Tra
 import { BAR_LEGEND_ICON, DEFAULT_CHART_NAME, DEFAULT_X_NAME, DEFAULT_Y_NAME, LINE_LEGEND_ICON, RESTORE, SAVE_AS_SVG, ZOOM_IN, ZOOM_OUT } from '../constants/chart.constants';
 
 @Directive({
-  selector: 'div[encharting]'
+  selector: 'div[encharting]',
+  standalone: true
 })
 export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy {
 

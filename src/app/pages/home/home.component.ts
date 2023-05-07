@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 import { CodeSnippetComponent } from 'src/app/shared/components/code-snippet/code-snippet.component';
-import { EnchartingModule } from 'encharting';
+import { EnchartingDirective } from 'encharting';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { EnchartingModule } from 'encharting';
     CommonModule,
     CodeSnippetComponent,
     SlideInDirective,
-    EnchartingModule,
+    EnchartingDirective,
     MatButtonModule,
     RouterModule
   ],

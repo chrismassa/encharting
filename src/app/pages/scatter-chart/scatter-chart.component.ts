@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Chart, EnchartingModule, PointSymbol } from 'encharting';
+import { Chart, EnchartingDirective, PointSymbol } from 'encharting';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { SCATTER_DATA_1, SCATTER_DATA_2 } from 'src/app/core/mock/scatter.mock';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
@@ -13,7 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [
     CommonModule,
-    EnchartingModule,
+    EnchartingDirective,
     SlideInDirective,
     MatTabsModule,
     CodeSnippetComponent,
@@ -33,13 +33,16 @@ export class ScatterChartComponent {
     <div encharting [config]="config"></div>
   `;
   tsCode: string = `
+    // ...
+    import { EnchartingDirective, Chart } from 'encharting';
+
     @Component({
       selector: 'app-scatter-chart',
       standalone: true,
       imports: [
         CommonModule,
-        // Be sure to import the Encharting Module before using the directive!
-        EnchartingModule,
+        // Be sure to have in your imports EnchartingDirective before using the directive!
+        EnchartingDirective,
       ],
       templateUrl: './scatter-chart.component.html',
     })

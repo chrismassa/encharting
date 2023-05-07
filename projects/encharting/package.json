@@ -1,6 +1,6 @@
 {
   "name": "encharting",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0"
@@ -12,16 +12,16 @@
   },
   "keywords": [
     "angular",
+    "angular 15",
+    "angular 16",
     "echarts",
-    "echarts-angular",
-    "component",
-    "chart",
-    "charts",
-    "graph",
-    "graphs",
-    "data-visualization",
-    "simple",
-    "directive"
+    "angular echarts",
+    "angular chart",
+    "angular charts",
+    "angular graph",
+    "angular graphs",
+    "angular data visualization",
+    "angular chart directive"
   ],
   "repository": {
     "type": "git",

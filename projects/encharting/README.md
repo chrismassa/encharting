@@ -12,14 +12,14 @@ npm install encharting --save
 
 # Usage
 
-- Firstly, import EnchartingModule in your app module (or any other proper Angular module).
+- Firstly, import EnchartingDirective in your app module (or any other proper Angular Module, Standalone Components also work).
   
     ```typescript
-    import { EnchartingModule } from 'encharting';
+    import { EnchartingDirective } from 'encharting';
 
     @NgModule({
         imports: [
-            EnchartingModule
+            EnchartingDirective
         ],
     })
     export class AppModule {}

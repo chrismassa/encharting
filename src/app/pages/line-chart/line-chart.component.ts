@@ -1,7 +1,7 @@
 import { CodeSnippetComponent } from 'src/app/shared/components/code-snippet/code-snippet.component';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Chart, EnchartingModule } from 'encharting';
+import { Chart, EnchartingDirective } from 'encharting';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -12,7 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [
     CommonModule,
-    EnchartingModule,
+    EnchartingDirective,
     SlideInDirective,
     MatTabsModule,
     CodeSnippetComponent,
@@ -32,13 +32,16 @@ export class LineChartComponent {
     <div encharting [config]="config"></div>
   `;
   tsCode: string = `
+    // ...
+    import { EnchartingDirective, Chart } from 'encharting';
+
     @Component({
       selector: 'app-line-chart',
       standalone: true,
       imports: [
         CommonModule,
-        // Be sure to import the Encharting Module before using the directive!
-        EnchartingModule,
+        // Be sure to have in your imports EnchartingDirective before using the directive!
+        EnchartingDirective,
       ],
       templateUrl: './line-chart.component.html',
     })
