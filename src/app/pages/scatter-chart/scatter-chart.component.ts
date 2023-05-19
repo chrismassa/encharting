@@ -95,8 +95,8 @@ export class ScatterChartComponent {
 
   config: Chart = {
     title: 'Scatter Chart',
-    xAxisName: 'Scatter X',
-    yAxisName: 'Scatter Y',
+    xAxisName: 'X',
+    yAxisName: 'Y',
     components: [
       {
         type: 'scatter',
@@ -113,11 +113,12 @@ export class ScatterChartComponent {
         name: 'Big Point',
         points: [
           {
-            x: 90,
+            x: 170,
             y: 80,
             name: 'Big Point',
-            symbol: PointSymbol.DIAMOND,
+            symbol: PointSymbol.CIRCLE,
             symbolSize: 20,
+            color: 'crimson'
           }
         ],
       },

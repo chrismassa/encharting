@@ -76,6 +76,8 @@ export class BarChartComponent {
 
   config: Chart = {
     title: 'Bar Chart',
+    xAxisName: 'X',
+    yAxisName: 'Y',
     components: [
       {
         type: 'bar',
