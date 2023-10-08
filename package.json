@@ -1,6 +1,6 @@
 {
   "name": "encharting-showcase",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +13,10 @@
     "test": "ng test",
     "bundle-report": "webpack-bundle-analyzer dist/encharting-showcase/stats.json"
   },
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/cdk": "^16.0.0",
