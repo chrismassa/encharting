@@ -1,7 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ElementRef } from '@angular/core';
 import { Input } from '@angular/core';
 import * as Prism from 'prismjs';
@@ -11,11 +10,13 @@ import { SlideInDirective } from '../../directives/slide-in.directive';
 @Component({
   selector: 'app-code-snippet',
   template: `
-    <small class="file-name" *ngIf="fileName">{{fileName}}</small>
+    @if (fileName) {
+      <small class="file-name">{{fileName}}</small>
+    }
     <pre slideIn [direction]="direction" class="mat-elevation-z8">
-        <code #codeElement [class]="'language-'+language">{{code}}</code>
+      <code #codeElement [class]="'language-'+language">{{code}}</code>
     </pre>
-  `,
+    `,
   styles: [`
     pre {
         border-radius: 5px;
@@ -34,7 +35,6 @@ import { SlideInDirective } from '../../directives/slide-in.directive';
   `],
   standalone: true,
   imports: [
-    CommonModule,
     SlideInDirective,
     MatButtonModule,
     MatIconModule

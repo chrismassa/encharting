@@ -1,8 +1,7 @@
 import { Subject, takeUntil } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Component, ViewChild, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { SidemenuService } from '../../services/sidemenu.service';
@@ -14,11 +13,11 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
   selector: 'app-sidemenu',
   standalone: true,
   imports: [
-    CommonModule,
     MatSidenavModule,
     MatButtonModule,
     MatListModule,
-    RouterModule,
+    RouterLink,
+    RouterLinkActive,
     MatIconModule,
     LayoutModule,
     SlideInDirective
@@ -27,19 +26,21 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
     <mat-drawer-container class="container" autosize>
       <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="mode === 'side'" slideIn direction="left">
         <mat-nav-list>
-          <mat-list-item class="nav-item" *ngFor="let link of menu"
-            [routerLink]="link.path"  
-            routerLinkActive="mdc-list-item--selected" 
-            [routerLinkActiveOptions]="{exact: true}">
-            <a>{{ link.name }}</a>
-          </mat-list-item>
+          @for (link of menu; track link) {
+            <mat-list-item class="nav-item"
+              [routerLink]="link.path"
+              routerLinkActive="mdc-list-item--selected"
+              [routerLinkActiveOptions]="{exact: true}">
+              <a>{{ link.name }}</a>
+            </mat-list-item>
+          }
         </mat-nav-list>
       </mat-drawer>
       <div style="overflow-x: hidden;">
         <ng-content></ng-content>
       </div>
     </mat-drawer-container>
-  `,
+    `,
   styleUrls: ['./sidemenu.component.scss']
 })
 export class SidemenuComponent implements OnDestroy {

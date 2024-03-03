@@ -1,14 +1,12 @@
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   imports: [
-    CommonModule,
     MatIconModule,
     MatToolbarModule,
     SlideInDirective

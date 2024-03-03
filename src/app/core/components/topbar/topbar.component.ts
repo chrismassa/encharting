@@ -1,7 +1,6 @@
-import { RouterModule } from '@angular/router';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,7 +15,6 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
   selector: 'app-topbar',
   standalone: true,
   imports: [
-    CommonModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -24,7 +22,7 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
     MatListModule,
     MatRadioModule,
     SlideInDirective,
-    RouterModule
+    AsyncPipe
   ],
   template: `
     <mat-toolbar slideIn direction="top" color="primary" class="topbar row justify-between align-center gap-20 mat-elevation-z4">
@@ -40,13 +38,15 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
       </button>
     </mat-toolbar>
     <mat-menu #themes="matMenu">
-      <button mat-menu-item *ngFor="let theme of themeService.themes" (click)="switchTheme(theme.value)">
-        <mat-radio-button color="primary" [checked]="(themeService.theme$ | async) === theme.value">
-          {{theme.name}}
-        </mat-radio-button>
-      </button>
+      @for (theme of themeService.themes; track theme) {
+        <button mat-menu-item (click)="switchTheme(theme.value)">
+          <mat-radio-button color="primary" [checked]="(themeService.theme$ | async) === theme.value">
+            {{theme.name}}
+          </mat-radio-button>
+        </button>
+      }
     </mat-menu>
-  `,
+    `,
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent {
