@@ -18,7 +18,7 @@ import { SlideInDirective } from 'src/app/shared/directives/slide-in.directive';
       <div class="row justify-center align-center">
         <span>Made with</span> 
         <mat-icon color="warn">favorite</mat-icon>
-        <span>by <a class="gh" href="https://github.com/chrismassa" target="_blank" >@chrismassa</a></span>
+        <span>by <a class="gh" href="https://github.com/chrismassa" target="_blank" >&#64;chrismassa</a></span>
       </div>
     </mat-toolbar>
   `,

@@ -79,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "encharting-showcase:build:production"
+              "buildTarget": "encharting-showcase:build:production"
             },
             "development": {
-              "browserTarget": "encharting-showcase:build:development"
+              "buildTarget": "encharting-showcase:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "encharting-showcase:build"
+            "buildTarget": "encharting-showcase:build"
           }
         },
         "test": {
