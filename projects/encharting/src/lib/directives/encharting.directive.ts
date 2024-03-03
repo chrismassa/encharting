@@ -288,14 +288,14 @@ export class EnchartingDirective implements AfterViewInit, OnChanges, OnDestroy 
           xAxisIndex: [0],
           throttle: 0,
           filterMode: 'none',
-          disabled: !chart.scrollToZoom ?? true
+          disabled: !chart.scrollToZoom
         },
         {
           type: 'inside',
           yAxisIndex: [0],
           throttle: 0,
           filterMode: 'none',
-          disabled: !chart.scrollToZoom ?? true
+          disabled: !chart.scrollToZoom
         },
       ],
       xAxis: {
